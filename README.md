@@ -26,7 +26,9 @@ makeSem ''Backup
 makeSem ''LocalStorage
 
 -- main logic of the program
-app :: Members '[RedditAPI, LocalStorage, Backup, Error String, Output Text, Embed IO] r => Sem r ()
+app 
+  :: Members '[RedditAPI, LocalStorage, Backup, Error String, Output Text, Embed IO] r 
+  => Sem r ()
 app = do
     authToken <- authenticateReddit
     response <- getSavedItemsReddit authToken
