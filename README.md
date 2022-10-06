@@ -32,8 +32,8 @@ app = do
     response <- getSavedItemsReddit authToken
     posts <- getListingItems response
     latestPost <- getMostRecentItem
-    let newPosts = keepNew posts latestPost
-    putItems $ reverse newPosts
+    let newPosts = reverse $ keepNew posts latestPost
+    putItems newPosts
     mapM_ backupItem newPosts
 ```
 
