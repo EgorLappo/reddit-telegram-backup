@@ -47,7 +47,9 @@ makeSem ''LocalStorage
 
 
 -- main logic of the program
-app :: Members '[RedditAPI, LocalStorage, Backup, Error String, Output Text, Embed IO] r => Sem r ()
+app 
+  :: Members '[RedditAPI, LocalStorage, Backup, Error String, Output Text, Embed IO] r 
+  => Sem r ()
 app = do
     rToken <- authenticateReddit
     output $ "reddit authentication successful..."
@@ -57,11 +59,11 @@ app = do
     output $ "got " <> T.pack (show $ length posts) <> "posts from Reddit..."
 
     latestPost <- getMostRecentItem
-    let newPosts = maybe posts (keepNewPosts posts) latestPost
+    let newPosts = reverse $ maybe posts (keepNewPosts posts) latestPost
     output $ T.pack (show $ length newPosts) <> " new posts detected..."
 
     output "backing up..."
-    putItems $ reverse newPosts
+    putItems newPosts
     mapM_ backupItem newPosts
 
 
