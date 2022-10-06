@@ -66,16 +66,23 @@ Here, I essentially map the GADT's from above into specific monadic actions in t
 ## Setup and usage
 
 1 - Register a new Reddit app at [https://ssl.reddit.com/prefs/apps/](https://ssl.reddit.com/prefs/apps/), note the client IO and secret.
+
 2 - Register a new telegram bot by following instructions at [https://core.telegram.org/api](https://core.telegram.org/api), note the bot API token.
+
 3 - Fill in the tokens and other registration data fields in `src/Config.hs`.
+
 4 - Compile the project using `stack build`.
+
 5 - Set the executable to run regularly (e.g. daily) using your preferred method.
 
 ## TODOS
 
 1 - Read config from a `.yaml` file instead of a haskell source file
+
 2 - Add better modularity and control of formatting options for telegram messages
+
 3 - Save text of long posts as a [telegra.ph](https://telegra.ph) page and attach it to a message.
+
 4 - Add a CLI to the script to be able to specify config/inspect the database/search posts.
 
 
