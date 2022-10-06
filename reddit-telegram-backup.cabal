@@ -1,0 +1,141 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           reddit-telegram-backup
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/EgorLappo/reddit-telegram-backup#readme>
+homepage:       https://github.com/EgorLappo/reddit-telegram-backup#readme
+bug-reports:    https://github.com/EgorLappo/reddit-telegram-backup/issues
+author:         Egor Lappo
+maintainer:     egor@ccrma.stanford.edu
+copyright:      Copyright (c) 2022 Egor Lappo
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/EgorLappo/reddit-telegram-backup
+
+library
+  exposed-modules:
+      App
+      Config
+      DatabaseSQLite
+      RedditServant
+      RedditTypes
+      ServantEffect
+      TelegramServant
+  other-modules:
+      Paths_reddit_telegram_backup
+  hs-source-dirs:
+      src
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      OverloadedStrings
+      DeriveGeneric
+      TemplateHaskell
+      LambdaCase
+  ghc-options: -O2 -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wno-unused-do-bind -Wno-unused-top-binds -Wredundant-constraints -fplugin=Polysemy.Plugin -flate-specialise -fspecialise-aggressively
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client-tls
+    , polysemy
+    , polysemy-plugin
+    , servant
+    , servant-client
+    , sqlite-simple
+    , text
+    , time
+  default-language: Haskell2010
+
+executable reddit-telegram-backup-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_reddit_telegram_backup
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      OverloadedStrings
+      DeriveGeneric
+      TemplateHaskell
+      LambdaCase
+  ghc-options: -O2 -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wno-unused-do-bind -Wno-unused-top-binds -Wredundant-constraints -fplugin=Polysemy.Plugin -flate-specialise -fspecialise-aggressively -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client-tls
+    , polysemy
+    , polysemy-plugin
+    , reddit-telegram-backup
+    , servant
+    , servant-client
+    , sqlite-simple
+    , text
+    , time
+  default-language: Haskell2010
+
+test-suite reddit-telegram-backup-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_reddit_telegram_backup
+  hs-source-dirs:
+      test
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      OverloadedStrings
+      DeriveGeneric
+      TemplateHaskell
+      LambdaCase
+  ghc-options: -O2 -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wno-unused-do-bind -Wno-unused-top-binds -Wredundant-constraints -fplugin=Polysemy.Plugin -flate-specialise -fspecialise-aggressively -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client-tls
+    , polysemy
+    , polysemy-plugin
+    , reddit-telegram-backup
+    , servant
+    , servant-client
+    , sqlite-simple
+    , text
+    , time
+  default-language: Haskell2010
